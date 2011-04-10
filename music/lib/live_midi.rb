@@ -82,8 +82,9 @@ end
 midi = LiveMIDI.new
 midi.program_change(1, 10)
 while true do
-  note = rand(127)
-  puts note.inspect
+  note = rand(90) + 10
+  time = rand(3)
+  puts "Playing note #{note} for #{time} seconds"
   midi.note_on(1, note, 100)
-  sleep(rand(5))
+  sleep(time)
 end
