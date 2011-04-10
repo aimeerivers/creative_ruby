@@ -80,11 +80,10 @@ if RUBY_PLATFORM.include?('darwin')
 end
 
 midi = LiveMIDI.new
-midi.note_on(0, 60, 100)
-sleep(1)
-midi.note_off(0, 60)
-sleep(1)
-midi.program_change(1, 40)
-midi.note_on(1, 60, 100)
-sleep(1)
-midi.note_off(1, 60)
+midi.program_change(1, 10)
+while true do
+  note = rand(127)
+  puts note.inspect
+  midi.note_on(1, note, 100)
+  sleep(rand(5))
+end
