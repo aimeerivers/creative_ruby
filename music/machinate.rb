@@ -8,3 +8,8 @@ every 4.beats do
   instrument(1) << bass       # sent to instrument 1
   instrument(1).play          # and played
 end
+
+every 4.beats do
+  piano = instrument 1
+  piano.play 'C D E G'
+end
