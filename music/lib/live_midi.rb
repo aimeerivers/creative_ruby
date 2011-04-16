@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'ffi'
-require File.join(File.dirname(__FILE__), 'run_midi')
+require 'run_midi'
 
 class LiveMIDI
   include RunMidi
