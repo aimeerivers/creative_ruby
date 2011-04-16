@@ -1,0 +1,3 @@
+h1. Creative Ruby
+
+Experiments into how creative we can become using Ruby. Combining elements of art, music and poetry, investigating community generated art.
