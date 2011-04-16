@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe LiveMidiWrapper do
 
-  let(:midi)    { LiveMIDI.new }
+  let(:midi)    { mock :midi }
   let(:wrapper) { LiveMidiWrapper.new(midi) }
 
   describe 'choosing a sound' do
