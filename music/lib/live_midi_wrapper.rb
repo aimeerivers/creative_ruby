@@ -1,3 +1,5 @@
+class InstrumentNotKnownError < StandardError; end
+
 class LiveMidiWrapper
 
   SOUNDS = {
@@ -10,7 +12,9 @@ class LiveMidiWrapper
   end
 
   def choose_sound(sound, options = {})
-    @midi.program_change(options[:for_channel] || 1, SOUNDS[sound])
+    sound = SOUNDS[sound]
+    raise InstrumentNotKnownError if sound.nil?
+    @midi.program_change(options[:for_channel] || 1, sound)
   end
 
 end

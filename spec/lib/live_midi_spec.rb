@@ -20,6 +20,10 @@ describe LiveMidiWrapper do
       midi.should_receive(:program_change).with(1, 10)
       wrapper.choose_sound :music_box
     end
+
+    it 'raises an error if the sound is unknown' do
+      lambda { wrapper.choose_sound :non_sound }.should raise_error(InstrumentNotKnownError)
+    end
   end
 
 end
