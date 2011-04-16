@@ -1,7 +1,9 @@
 require 'rubygems'
 require 'ffi'
+require File.join(File.dirname(__FILE__), 'run_midi')
 
 class LiveMIDI
+  include RunMidi
 
   ON = 0x90
   OFF = 0x80
@@ -77,14 +79,4 @@ if RUBY_PLATFORM.include?('darwin')
       C.MIDISend @outport, @destination, packet_list
     end
   end
-end
-
-midi = LiveMIDI.new
-midi.program_change(1, 10)
-while true do
-  note = rand(90) + 10
-  time = rand(3)
-  puts "Playing note #{note} for #{time} seconds"
-  midi.note_on(1, note, 100)
-  sleep(time)
 end
