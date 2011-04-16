@@ -9,8 +9,8 @@ class LiveMidiWrapper
     @midi = midi
   end
 
-  def choose_sound(sound, options)
-    @midi.program_change(options[:for_channel], SOUNDS[sound])
+  def choose_sound(sound, options = {})
+    @midi.program_change(options[:for_channel] || 1, SOUNDS[sound])
   end
 
 end

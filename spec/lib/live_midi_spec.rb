@@ -15,6 +15,11 @@ describe LiveMidiWrapper do
       midi.should_receive(:program_change).with(2, 10)
       wrapper.choose_sound :music_box, for_channel: 2
     end
+
+    it 'chooses channel 1 if not otherwise specified' do
+      midi.should_receive(:program_change).with(1, 10)
+      wrapper.choose_sound :music_box
+    end
   end
 
 end
