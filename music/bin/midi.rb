@@ -1,5 +1,5 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require 'run_midi'
+require 'random_music'
 
-midi = RunMidi.new
-midi.run
+music_generator = RandomMusic.new
+music_generator.play_music

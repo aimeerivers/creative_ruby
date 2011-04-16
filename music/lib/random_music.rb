@@ -1,8 +1,8 @@
 require 'live_midi'
 
-class RunMidi < LiveMIDI
+class RandomMusic < LiveMIDI
 
-  def run
+  def play_music
     self.program_change(1, 1)
     while true do
       note = rand(90) + 10
