@@ -8,7 +8,7 @@ class RandomMusicGenerator
   end
 
   def play_music
-    @midi.choose_instrument :piano, for_channel: 1
+    @midi.choose_instrument :music_box, for_channel: 1
     while true do
       note = rand(90) + 10
       time = rand(3)
