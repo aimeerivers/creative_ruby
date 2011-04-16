@@ -28,12 +28,12 @@ describe LiveMidiWrapper do
 
   describe 'playing a note' do
     it 'starts playing the note' do
-      midi.should_receive(:note_on).with(2, 50)
+      midi.should_receive(:note_on).with(2, 50, nil)
       wrapper.play_note 50, on_channel: 2
     end
 
     it 'chooses channel 1 unless otherwise specified' do
-      midi.should_receive(:note_on).with(1, 50)
+      midi.should_receive(:note_on).with(1, 50, nil)
       wrapper.play_note 50
     end
 
