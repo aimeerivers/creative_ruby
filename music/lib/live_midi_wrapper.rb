@@ -18,7 +18,12 @@ class LiveMidiWrapper
   end
 
   def play_note(pitch, options = {})
-    @midi.note_on(options[:on_channel] || 1, pitch)
+    channel = options[:on_channel] || 1
+    if options[:with_velocity]
+      @midi.note_on(channel, pitch, options[:with_velocity])
+    else
+      @midi.note_on(channel, pitch)
+    end
   end
 
 end

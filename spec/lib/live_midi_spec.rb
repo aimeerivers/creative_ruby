@@ -36,6 +36,11 @@ describe LiveMidiWrapper do
       midi.should_receive(:note_on).with(1, 50)
       wrapper.play_note 50
     end
+
+    it 'can optionally have a velocity' do
+      midi.should_receive(:note_on).with(1, 80, 100)
+      wrapper.play_note 80, with_velocity: 100
+    end
   end
 
 end
