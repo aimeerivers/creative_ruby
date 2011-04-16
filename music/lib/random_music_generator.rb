@@ -1,6 +1,6 @@
 require 'live_midi'
 
-class RandomMusic < LiveMIDI
+class RandomMusicGenerator < LiveMIDI
 
   def play_music
     self.program_change(1, 1)
