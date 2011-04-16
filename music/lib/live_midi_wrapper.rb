@@ -1,7 +1,8 @@
 class LiveMidiWrapper
 
   SOUNDS = {
-    piano: 1
+    piano: 1,
+    music_box: 10
   }
 
   def initialize(midi)
