@@ -1,3 +1,15 @@
 h1. Creative Ruby
 
 Experiments into how creative we can become using Ruby. Combining elements of art, music and poetry, investigating community generated art.
+
+h2. Current status
+
+h3. 2011-04-16
+
+Play randomly generated notes by running:
+
+  ruby music/bin/make_music.rb
+
+Try machinate by installing tmdas (bundle install) and running:
+
+  machinate music/machinate.rb
