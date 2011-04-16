@@ -1,5 +1,5 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require 'live_midi'
+require 'run_midi'
 
-midi = LiveMIDI.new
+midi = RunMidi.new
 midi.run

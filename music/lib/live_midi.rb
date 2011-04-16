@@ -1,9 +1,7 @@
 require 'rubygems'
 require 'ffi'
-require 'run_midi'
 
 class LiveMIDI
-  include RunMidi
 
   ON = 0x90
   OFF = 0x80

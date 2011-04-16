@@ -1,4 +1,6 @@
-module RunMidi
+require 'live_midi'
+
+class RunMidi < LiveMIDI
 
   def run
     self.program_change(1, 1)
