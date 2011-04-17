@@ -4,6 +4,14 @@ class LiveMidiWrapper
 
   INSTRUMENTS = {
     piano: 1,
+    piano_2: 2,
+    honky_tonk: 3,
+    electric_piano: 4,
+    electric_piano_2: 5,
+    harpsichord: 6,
+    clavinet: 7,
+    celesta: 8,
+    glockenspiel: 9,
     music_box: 10
   }
 
