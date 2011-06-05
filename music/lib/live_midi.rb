@@ -1,7 +1,9 @@
 require 'rubygems'
 require 'ffi'
+require 'singleton'
 
 class LiveMIDI
+  include Singleton
 
   ON = 0x90
   OFF = 0x80

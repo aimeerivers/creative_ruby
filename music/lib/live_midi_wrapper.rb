@@ -1,6 +1,10 @@
+require 'note'
+
 class InstrumentNotKnownError < StandardError; end
 
 class LiveMidiWrapper
+
+  DEFAULT_CHANNEL = 1
 
   INSTRUMENTS = {
     piano: 1,
@@ -15,20 +19,35 @@ class LiveMidiWrapper
     music_box: 10
   }
 
-  def initialize(midi)
-    @midi = midi
+  def initialize
+    @played_notes = []
+    @midi = LiveMIDI.instance
   end
 
   def choose_instrument(instrument, options = {})
-    instrument = INSTRUMENTS[instrument]
+    instrument = INSTRUMENTS[instrument] if instrument.is_a? Symbol
     raise InstrumentNotKnownError if instrument.nil?
-    @midi.program_change(options[:for_channel] || 1, instrument)
+    @midi.program_change(options[:for_channel] || DEFAULT_CHANNEL, instrument)
   end
 
   def play_note(pitch, options = {})
-    channel = options[:on_channel] || 1
+    channel = configure_channel(options)
     velocity = options[:with_velocity]
-    @midi.note_on(channel, pitch, velocity)
+    note = Note.new(pitch, channel, velocity)
+    @played_notes << note
+    note.play
+  end
+
+  def stop_all
+    @played_notes.each do |note|
+      note.stop
+    end
+  end
+
+  private
+
+  def configure_channel(options)
+    options[:on_channel] || DEFAULT_CHANNEL
   end
 
 end
